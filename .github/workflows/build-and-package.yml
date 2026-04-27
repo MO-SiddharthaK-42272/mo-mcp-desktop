@@ -1,0 +1,53 @@
+name: Build and Package
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+  workflow_dispatch:
+
+jobs:
+  build-and-package:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build project
+        run: npm run build
+      
+      - name: Get timestamp
+        id: timestamp
+        run: echo "timestamp=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
+      
+      - name: Install 7zip
+        run: sudo apt-get update && sudo apt-get install -y p7zip-full
+      
+      - name: Delete old build zips
+        run: |
+          rm -f dist-*.zip
+          echo "Removed old build zips"
+      
+      - name: Create password-protected zip
+        run: |
+          7z a -tzip -mem=AES256 -p"mosl@123" "dist-${{ steps.timestamp.outputs.timestamp }}.zip" ./dist/*
+      
+      - name: Commit latest build to repository
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add dist-${{ steps.timestamp.outputs.timestamp }}.zip
+          git commit -m "Update build package: dist-${{ steps.timestamp.outputs.timestamp }}.zip [skip ci]" || echo "No changes to commit"
+          git push || echo "Nothing to push"
