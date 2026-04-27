@@ -8,6 +8,10 @@ on:
       - develop
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-package:
     runs-on: ubuntu-latest
@@ -35,9 +39,6 @@ jobs:
       - name: Get timestamp
         id: timestamp
         run: echo "timestamp=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_OUTPUT
-      
-      - name: Install 7zip
-        run: sudo apt-get install -y p7zip-full
       
       - name: Delete old build zips
         run: |
