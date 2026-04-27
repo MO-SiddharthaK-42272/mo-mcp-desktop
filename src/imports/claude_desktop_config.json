@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "MO-TRADING": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mo-mcp-bridge",
+        "https://mcp.motilaloswal.com/mcp/"
+      ]
+    }
+  },
+  "preferences": {
+    "coworkScheduledTasksEnabled": false,
+    "sidebarMode": "chat",
+    "ccdScheduledTasksEnabled": true,
+    "coworkWebSearchEnabled": true
+  }
+}

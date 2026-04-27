@@ -1,0 +1,1 @@
+import{j as o}from"./ui-vendor-pWyxZnSE.js";import"./react-vendor-BRY8hXab.js";function s(){return o.jsx("section",{className:"py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50",children:o.jsx("div",{className:"max-w-[1280px] mx-auto"})})}export{s as SocialProof};

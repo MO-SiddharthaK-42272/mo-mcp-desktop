@@ -1,0 +1,6 @@
+import{j as e}from"./ui-vendor-pWyxZnSE.js";import{c as a,m as t}from"./index-CjqzwPAT.js";import"./react-vendor-BRY8hXab.js";import"./pdf-vendor-C6egDarf.js";/**
+ * @license lucide-react v0.487.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const o=[["path",{d:"M15 3h6v6",key:"1q9fwt"}],["path",{d:"M10 14 21 3",key:"gplh6r"}],["path",{d:"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6",key:"a6xqqp"}]],i=a("external-link",o);function d(){return e.jsx("section",{className:"py-8 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white",children:e.jsxs("div",{className:"max-w-[1280px] mx-auto",children:[!1,e.jsx(t.div,{initial:{opacity:0,y:20},whileInView:{opacity:1,y:0},viewport:{once:!0},transition:{duration:.6,delay:.4},className:"text-center mt-0",children:e.jsxs(t.a,{href:"claude://open",onClick:()=>{window.location.href="claude://open"},whileHover:{scale:1.05},whileTap:{scale:.95},className:"bg-[#2B2E8C] text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all inline-flex items-center gap-2 cursor-pointer",children:["Try now in Claude Desktop",e.jsx(i,{className:"h-5 w-5"})]})})]})})}export{d as AdvancedFeatures};
